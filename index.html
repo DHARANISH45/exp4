@@ -1,0 +1,125 @@
+<html>
+    <head>
+        <title>
+            form validation</title>
+            <style>
+                *{
+                    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                }
+                h2{
+                    text-align: center;
+                    font-size: 35px;
+                    font-weight: bolder;
+                    padding-top: 80px;
+                }
+               
+                #form{
+                   position: absolute;
+                   left: 37%;
+                   top: 25%;
+                   border: 2px solid black;
+                   height: 520px;
+                   width: 300px;
+                   padding-left: 70px;
+                   border-radius: 20px;
+                   font-weight: 600;
+                   background-color: aquamarine;
+                }
+                body{
+                    background-color: aqua;
+                }
+                h3{
+                    font-weight: bold;
+                }
+                #btn{
+                    display: flex;
+                    gap: 20px;
+                    flex-direction:row ;
+                }
+
+            </style>
+    </head>
+    <body>
+        <div id="content">
+        <h2>Form Validation</h2>
+        
+        <form name="form" id="form" action="" onsubmit="return validate()" method="post">
+            <h3><u>USER REGISTRATION</u></h3>
+            <label for="fname">First Name</label><br>
+            <input type="text" id="fname" name="fname" placeholder="Enter your First name"> <br>
+
+            <label for="lname">Last Name</label><br>
+            <input type="text" id="lname" name="lname" placeholder="Enter your Last name"> <br>
+
+            <label for="mail">Mail</label><br>
+            <input type="email" id="mail" name="mail" placeholder="Enter your Mail ID"> <br>
+
+            <label for="pass">Password</label><br>
+            <input type="password" id="pass" name="pass" placeholder="Enter your password"> <br>
+
+            <label for="cpass">Confirm password</label><br>
+            <input type="password" id="cpass" name="cpass" placeholder="Re-enter your password"> <br>
+
+            <label for="dob">Birth Date</label><br>
+            <input type="date" id="dob" name="dob" required> <br>
+
+            <label for="ge">gender</label><br>
+         <input type="radio"id="male" name="ge">
+         <label for="ge">male</label><br>
+         <input type="radio"id="female" name="ge">
+         <label for="gender">female</label><br>
+
+            <label for="course">course</label><br>
+            <select id="course" required>
+                <option>IT</option>
+                <option>CSE</option>
+                <option>ECE</option>
+                <option>Other</option>
+            </select><br><br>
+            <div id="btn">
+            <input type="submit" value="submit" id="sbtn">
+            <input type="reset" value="reset" id="rbtn">
+        </div>
+        </form>
+    </div>
+    </body>
+    <script>
+          function validate(){
+            let x=document.forms["form"]["fname"].value;
+            if(x==""){
+                alert("First name must will be filled")
+            return false;
+            }
+
+            let x1=document.forms["form"]["lname"].value;
+            if(x1==""){
+                alert("Last name must will be filled")
+            return false;
+            }
+
+            let x2=document.forms["form"]["mail"].value;
+            let emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailPattern.test(x2)) {
+                alert("Invalid email address");
+                return false;
+            }
+
+            let x3=document.forms["form"]["pass"].value;
+            if(x3==""){
+                alert("password must will be filled")
+            return false;
+            }
+            
+            let x4=document.forms["form"]["cpass"].value;
+            if(x4!=x3){
+                alert(" password mismatch")
+            return false;
+            }
+            else{
+                alert("submitted")
+            return false;
+            }
+
+          }
+    </script>
+</html>   
